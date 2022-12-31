@@ -1,23 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import ShowList from './ShowList';
+import BookForm from './BookForm';
 
 function App() {
+  const [showList,setShowList] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        {!showList && <BookForm setShowList={setShowList}/>}
+        {showList && <ShowList setShowList={setShowList}/>}
     </div>
   );
 }
